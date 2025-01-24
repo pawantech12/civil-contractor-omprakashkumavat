@@ -43,12 +43,10 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gray-100">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-neutral-700 mb-5">
-          Our Projects
-        </h2>
-        <p className="text-neutral-600 mb-8 w-3/4 max-sm:w-full mx-auto px-5">
+    <section id="gallery" className="gallery-section">
+      <div className="container mx-auto">
+        <h2 className="gallery-section__title">Our Projects</h2>
+        <p className="gallery-section__description">
           Explore our diverse range of projects, showcasing exceptional
           craftsmanship across categories like Furniture, POP, Tiling, Lighting,
           Plumbing, and Granite. Browse through our gallery to see the quality
@@ -56,16 +54,12 @@ const GallerySection = () => {
         </p>
 
         {/* Tabs */}
-        <div className="mb-8 flex flex-wrap justify-center gap-3">
+        <div className="tabs">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`px-5 py-2 rounded-lg border transition duration-300 cursor-pointer ${
-                activeTab === category
-                  ? "bg-neutral-800 text-white border-neutral-800"
-                  : "bg-white text-neutral-800 border-neutral-800 hover:bg-neutral-800 hover:text-white"
-              }`}
+              className={`tab-button ${activeTab === category ? "active" : ""}`}
             >
               {category}
             </button>
@@ -73,21 +67,10 @@ const GallerySection = () => {
         </div>
 
         {/* Projects */}
-        <div
-          className={`grid md:grid-cols-3 gap-8 px-5 transition-opacity duration-300 ${
-            isTransitioning ? "opacity-0" : "opacity-100"
-          }`}
-        >
+        <div className={`projects ${isTransitioning ? "transitioning" : ""}`}>
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
-            <div
-              className="bg-white p-6 rounded-xl border border-neutral-800 transition-transform duration-300 transform hover:-translate-y-1.5 cursor-pointer"
-              key={index}
-            >
-              <img
-                src={project.img}
-                alt="Project"
-                className="w-full h-64 object-cover rounded-xl"
-              />
+            <div className="project-card" key={index}>
+              <img src={project.img} alt="Project" className="project-img" />
             </div>
           ))}
         </div>
@@ -97,7 +80,7 @@ const GallerySection = () => {
           <button
             onClick={handleViewMore}
             disabled={loading}
-            className="mt-8 px-6 py-3 bg-neutral-800 text-white font-semibold rounded-lg hover:bg-neutral-700 transition duration-300 cursor-pointer"
+            className="view-more-btn"
           >
             {loading ? "Loading..." : "View More"}
           </button>

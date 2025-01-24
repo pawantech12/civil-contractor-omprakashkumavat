@@ -32,24 +32,15 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="services" className="py-20 bg-gray-100">
-    <div className="container mx-auto text-center">
-      <h2 className="text-3xl font-semibold mb-8 text-neutral-800">
-        Our Services
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8 mt-10 max-md:px-5">
+  <section id="services">
+    <div className="container">
+      <h2>Our Services</h2>
+      <div className="grid max-md:px-5">
         {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-white p-6 rounded-xl border border-neutral-800"
-          >
-            <img
-              src={`/${service.image}`}
-              alt={service.name}
-              className="w-full h-64 object-cover rounded-xl"
-            />
-            <h3 className="text-2xl mt-4">{service.name}</h3>
-            <p className="mt-2 text-lg">{service.description}</p>
+          <div key={index} className="card">
+            <img src={`/${service.image}`} alt={service.name} />
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
           </div>
         ))}
       </div>

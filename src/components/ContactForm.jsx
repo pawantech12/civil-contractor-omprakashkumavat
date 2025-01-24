@@ -7,6 +7,7 @@ const ContactForm = () => {
   const [loading, isLoading] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
+
     isLoading(true);
 
     emailjs
@@ -35,38 +36,31 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto text-center px-5">
-        <h2 className="text-3xl font-semibold text-neutral-800 mb-8">
-          Contact Us
-        </h2>
-        <form
-          ref={form}
-          onSubmit={sendEmail}
-          className="max-w-lg mx-auto space-y-6"
-        >
+    <section id="contact" className="contact-section">
+      <div className="contact-container">
+        <h2 className="contact-heading">Contact Us</h2>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
           <input
             type="text"
             name="user_name"
             placeholder="Your Name"
-            className="w-full p-4 border rounded-lg"
+            className="contact-input"
+            required
           />
           <input
             type="email"
             name="user_email"
             placeholder="Your Email"
-            className="w-full p-4 border rounded-lg"
+            className="contact-input"
+            required
           />
           <textarea
             name="message"
             placeholder="Your Message"
-            className="w-full p-4 border rounded-lg h-32"
+            className="contact-textarea"
+            required
           />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-4 bg-neutral-900 text-white font-semibold rounded-lg hover:bg-neutral-800 transition duration-300 cursor-pointer"
-          >
+          <button type="submit" disabled={loading} className="contact-button">
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
