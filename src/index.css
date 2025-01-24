@@ -549,7 +549,7 @@ h2 {
 
 @media (max-width: 640px) {
   .gallery-section p {
-    width: 100%;
+    width: fit-content;
   }
   .gallery-section .projects {
     grid-template-columns: repeat(1, 1fr) !important;
@@ -597,7 +597,6 @@ h2 {
 .contact-input,
 .contact-textarea,
 .contact-button {
-  width: 100%;
   padding: 1rem;
   border: 1px solid #e2e8f0;
   font-size: 1rem;
