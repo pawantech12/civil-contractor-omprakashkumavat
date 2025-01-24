@@ -20,13 +20,11 @@ const Navbar = ({
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <figure>
-            <img
-              src="/logo.webp"
-              alt="Civil Service Logo"
-              className="navbar-logo"
-            />
-          </figure>
+          <img
+            src="/logo.webp"
+            alt="Civil Service Logo"
+            className="navbar-logo"
+          />
           <h1>Civil Contractor</h1>
         </div>
         <div className="navbar-links">
@@ -66,13 +64,11 @@ const Navbar = ({
         >
           <div className="drawer-header">
             <div className="drawer-brand">
-              <figure>
-                <img
-                  src="/logo.webp"
-                  alt="civil service logo"
-                  className="drawer-logo"
-                />
-              </figure>
+              <img
+                src="/logo.webp"
+                alt="civil service logo"
+                className="drawer-logo"
+              />
               <h1>Civil Contractor</h1>
             </div>
             <button className="drawer-close" onClick={() => setIsOpen(false)}>
