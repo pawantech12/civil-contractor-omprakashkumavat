@@ -22,7 +22,7 @@ const Navbar = ({
         <div className="navbar-brand">
           <img
             src="/logo.webp"
-            alt="Civil Service Logo"
+            alt="Civil Contractor Logo - Best Civil Services"
             className="navbar-logo"
           />
           <h1>Civil Contractor</h1>

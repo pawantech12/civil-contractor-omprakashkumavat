@@ -45,16 +45,16 @@ const GallerySection = () => {
   return (
     <section id="gallery" className="gallery-section">
       <div className="container mx-auto">
-        <h2 className="gallery-section__title">Our Projects</h2>
+        <h4 className="gallery-section__title">Our Projects</h4>
         <p className="gallery-section__description">
-          Explore our diverse range of projects, showcasing exceptional
-          craftsmanship across categories like Furniture, POP, Tiling, Lighting,
-          Plumbing, and Granite. Browse through our gallery to see the quality
-          and creativity we bring to every project.
+          Explore our diverse range of home and office interior projects,
+          showcasing exceptional craftsmanship across categories like Furniture,
+          POP, Tiling, Lighting, Plumbing, and Granite. Browse through our
+          gallery to see the quality and creativity we bring to every project.
         </p>
 
         {/* Tabs */}
-        <div className="tabs">
+        <nav className="tabs" role="navigation">
           {categories.map((category) => (
             <button
               key={category}
@@ -64,16 +64,26 @@ const GallerySection = () => {
               {category}
             </button>
           ))}
-        </div>
+        </nav>
 
         {/* Projects */}
-        <div className={`projects ${isTransitioning ? "transitioning" : ""}`}>
+        <section
+          className={`projects ${isTransitioning ? "transitioning" : ""}`}
+        >
           {filteredProjects.slice(0, visibleCount).map((project, index) => (
-            <div className="project-card" key={index}>
-              <img src={project.img} alt="Project" className="project-img" />
-            </div>
+            <article className="project-card" key={index}>
+              <h3 className="project-title">{project.title}</h3>
+              <img
+                src={project.img}
+                alt={`Interior design project - ${project.title}`}
+                className="project-img"
+                loading="lazy"
+                width="400"
+                height="300"
+              />
+            </article>
           ))}
-        </div>
+        </section>
 
         {/* View More Button */}
         {visibleCount < filteredProjects.length && (
@@ -82,7 +92,7 @@ const GallerySection = () => {
             disabled={loading}
             className="view-more-btn"
           >
-            {loading ? "Loading..." : "View More"}
+            {loading ? "Loading..." : "View More Projects"}
           </button>
         )}
       </div>

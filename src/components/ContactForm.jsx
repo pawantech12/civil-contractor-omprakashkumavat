@@ -5,34 +5,27 @@ import { toast } from "react-toastify";
 const ContactForm = () => {
   const form = useRef();
   const [loading, isLoading] = useState(false);
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
     isLoading(true);
 
-    emailjs
-      .sendForm(
+    try {
+      const result = await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log("Success:", result.text);
-          // Optionally, reset the form or show a success message
-          form.current.reset();
-          toast.success("Email sent successfully!");
-        },
-        (error) => {
-          console.error("Error:", error.text);
-          // Optionally, show an error message
-          toast.error("Failed to send email. Please try again.");
-        }
-      )
-      .finally(() => {
-        isLoading(false); // Reset loading state after email is sent or error occurs
-      });
+      );
+      console.log("Success:", result.text);
+      form.current.reset();
+      toast.success("Email sent successfully!");
+    } catch (error) {
+      console.error("Error:", error.text);
+      toast.error("Failed to send email. Please try again.");
+    } finally {
+      isLoading(false);
+    }
   };
 
   return (

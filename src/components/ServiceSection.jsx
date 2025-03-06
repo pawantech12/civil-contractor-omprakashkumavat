@@ -32,13 +32,17 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="services">
+  <section id="services" aria-labelledby="services-heading">
     <div className="container">
-      <h2>Our Services</h2>
+      <h4>Our Services</h4>
       <div className="grid max-md:px-5">
         {services.map((service, index) => (
-          <div key={index} className="card">
-            <img src={`/${service.image}`} alt={service.name} />
+          <div key={index} className="card" aria-label={service.name}>
+            <img
+              src={`/${service.image}`}
+              alt={`${service.name} services - Best home improvement`}
+              loading="lazy"
+            />
             <h3>{service.name}</h3>
             <p>{service.description}</p>
           </div>

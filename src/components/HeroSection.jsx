@@ -1,21 +1,32 @@
 const HeroSection = ({ scrollToSection, contactRef }) => (
   <section
     className="hero-section"
-    style={{ backgroundImage: "url(/hero-bg.webp)" }}
+    style={{
+      backgroundImage: "url(/hero-bg.webp)",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+    }}
+    role="banner"
+    aria-label="Civil Contracting Services - Plumbing, Lighting, Furniture, Tile & Granite"
   >
     <div className="hero-content">
       <h1 className="hero-title">
-        35+ Years of Excellence in Civil Contracting
+        Leading Civil Contractor with 35+ Years of Experience
       </h1>
-      <p className="hero-subtitle">
-        Delivering Quality Plumbing, Lighting, Furniture, Tile & Granite
-        Services
+      <h2 className="hero-subtitle">
+        Expert in Plumbing, Lighting, Furniture, Tile & Granite Installation
+      </h2>
+      <p className="hero-description">
+        Quality craftsmanship & top-rated services for residential and
+        commercial projects.
       </p>
       <button
         onClick={() => scrollToSection(contactRef)}
         className="hero-button"
+        aria-label="Request a Free Quote for Civil Contracting Services"
       >
-        Get a Free Quote
+        Request a Free Consultation
       </button>
     </div>
   </section>
